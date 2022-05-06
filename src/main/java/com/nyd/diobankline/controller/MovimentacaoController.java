@@ -25,6 +25,11 @@ public class MovimentacaoController {
         return repository.findAll();
     }
 
+    @GetMapping("/{idConta}")
+    public List<Movimentacao> findMovimentacoesByCorrentista(@PathVariable("idConta") Integer idConta){
+        return repository.findByIdConta(idConta);
+    }
+
     @PostMapping
     public void save(@RequestBody NovaMovimentacaoDTO movimentacao){
         service.save(movimentacao);
